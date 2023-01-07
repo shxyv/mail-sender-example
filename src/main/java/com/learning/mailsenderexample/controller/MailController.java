@@ -23,7 +23,6 @@ public class MailController {
 
     @PostMapping(value = "/attachment")
     public void sendAttachedMail(@RequestBody MailMessage mailMessage) {
-        System.out.println(mailMessage);
         mailService.sendAttachedMail(mailMessage);
     }
 
