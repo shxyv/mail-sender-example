@@ -3,6 +3,8 @@ package com.learning.mailsenderexample.service;
 
 import com.learning.mailsenderexample.mapper.MailMapper;
 import com.learning.mailsenderexample.model.MailMessage;
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
 import lombok.RequiredArgsConstructor;
@@ -34,6 +36,16 @@ public class MailService {
         } catch (MessagingException e) {
             log.error("Unable to send message!");
         }
+    }
+
+    @PostConstruct
+    public void init() {
+        System.out.println("Mail service is initialized!");
+    }
+
+    @PreDestroy
+    public void destroy() {
+        System.out.println("Mail service is destroyed!");
     }
 
 }
